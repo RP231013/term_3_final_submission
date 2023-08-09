@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opal Seas</title>
+    <!-- Style sheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+    <!-- nav ------------------------>
+    <nav class="navbar fixed-top pt-0" style="background-color: #ffffff; height: 80px;">
+      <div class="container">
+
+        <!-- logo -->
+        <a class="navbar-brand" href="#">
+          <img src="assets/logo.png" alt="Logo" height="70">
+        </a>
+
+        <!-- nav items -->
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="trips.html">Trips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="wishlist.html">Basket</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end nav ------------------------>
+
+
+    <!-- carousel ----------------------------------------------------------------------------->
+    <div id="carouselExampleIndicators" class="carousel slide" >
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner ">
+            <!-- slide 1 -->
+          <div class="carousel-item full-height active">
+            <img src="assets/mainBG.jpg" class="d-block w-100" alt="...">
+
+            <div class="container">
+                <div class="text-holder">
+                    <div class="row">
+                        <h2>Discover the Epitome of Luxury Yacht Cruises</h2>
+                        <h1>A Luxurious Escape</h1>
+                        <p>Embark on an unforgettable journey with Opal Seas, where opulence and elegance meet the tranquil allure of the seas. Get ready to indulge in a world of refined luxury, tailored to surpass your every desire, as you set sail on our handpicked fleet of exquisite yachts.</p>
+                    </div>
+                    <button class="button mt-2">Begin Voyage</button>
+                </div>
+                
+            </div>          
+          </div>
+
+          <!-- slide 2 -->
+          <div class="carousel-item full-height">
+            <img src="assets/secondBG.jpg" class="d-block w-100" alt="...">
+            <div class="container">
+                <div class="text-holder">
+                    <div class="row">
+                        <h2>Unwind in Opulent Comfort</h2>
+                        <h1>Luxury Accommodations</h1>
+                        <p>Experience unmatched comfort and sophistication as you bask in the lavish interiors of our meticulously designed cabins and suites. Every detail has been thoughtfully curated to create an oasis of tranquility, ensuring a restful retreat throughout your voyage.</p>
+                    </div>
+                    <button class="button mt-2">Explore Trips</button>
+                </div>
+                
+            </div>
+          </div>
+
+          <!-- slide 3 -->
+          <div class="carousel-item full-height">
+            <img src="assets/thirdBG.jpg" class="d-block w-100" alt="...">
+            <div class="container">
+                <div class="text-holder">
+                    <div class="row">
+                        <h2>Unforgettable Experiences</h2>
+                        <h1>Exclusive Activities</h1>
+                        <p>Immerse yourself in a world of luxury and adventure with our curated selection of exclusive activities. From snorkeling in crystal-clear waters to private island excursions, each experience is designed to elevate your journey and create cherished memories that last a lifetime.</p>
+                    </div>
+                    <button class="button mt-2">Explore Activities</button>
+                </div>
+                
+            </div>
+          </div>
+
+        </div>
+
+        <!-- carousel buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="46" viewBox="0 0 26 46" fill="none">
+                <path d="M4 26H7V20H4L4 26ZM0.87868 20.8787C-0.292893 22.0503 -0.292893 23.9497 0.87868 25.1213L19.9706 44.2132C21.1421 45.3848 23.0416 45.3848 24.2132 44.2132C25.3848 43.0416 25.3848 41.1421 24.2132 39.9706L7.24264 23L24.2132 6.02944C25.3848 4.85786 25.3848 2.95837 24.2132 1.7868C23.0416 0.615223 21.1421 0.615223 19.9706 1.7868L0.87868 20.8787ZM4 20H3L3 26H4L4 20Z" fill="white" fill-opacity="0.95"/>
+            </svg>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="46" viewBox="0 0 26 46" fill="none">
+                <path d="M22 20H19V26H22V20ZM25.1213 25.1213C26.2929 23.9497 26.2929 22.0503 25.1213 20.8787L6.02944 1.7868C4.85786 0.615223 2.95837 0.615223 1.7868 1.7868C0.615223 2.95837 0.615223 4.85786 1.7868 6.02944L18.7574 23L1.7868 39.9706C0.615223 41.1421 0.615223 43.0416 1.7868 44.2132C2.95837 45.3848 4.85786 45.3848 6.02944 44.2132L25.1213 25.1213ZM22 26H23V20H22V26Z" fill="white" fill-opacity="0.95"/>
+              </svg>
+        </button>
+        <!-- end carousel buttons -->
+
+      </div>
+    <!-- end carousel ----------------------------------------------------------------------------->
+
+      
+
+    
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+
+  </body>
+</html>
