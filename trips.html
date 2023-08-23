@@ -37,7 +37,38 @@
     <!-- end nav ------------------------>
 
     <div class="header">
-        <div class="header-background"></div>
+
+        <div class="header-background">
+          
+          <!-- Filter & Sorts -->
+          <div class="sortBtns">
+
+            <!-- Filter Radio Buttons -->
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="filterRadio" id="allCruisesFilter" value="" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="allCruisesFilter">All Cruises</label>
+            
+              <input type="radio" class="btn-check" name="filterRadio" id="coldFilter" value="cold" autocomplete="off">
+              <label class="btn btn-outline-primary" for="coldFilter">Cold Weather</label>
+            
+              <input type="radio" class="btn-check" name="filterRadio" id="warmFilter" value="warm" autocomplete="off">
+              <label class="btn btn-outline-primary" for="warmFilter">Warm Weather</label>
+            </div>
+
+            <!-- Sort Radio Buttons -->
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              
+              <input type="radio" class="btn-check" name="sortRadio" id="priceFilter" value="low to high" autocomplete="off">
+              <label class="btn btn-outline-primary" for="priceFilter">Price (Low to High)</label>
+            
+              <input type="radio" class="btn-check" name="sortRadio" id="azSort" value="a to z" autocomplete="off">
+              <label class="btn btn-outline-primary" for="azSort">Alphabetically</label>
+            </div>
+            
+          </div>
+
+        </div>
+
         <div class="header-divider"></div>
         <div class="header-title">Our Cruises</div>
     </div>
@@ -45,35 +76,48 @@
     <div class="container">
         <div class="row" id="cruiseContainer">
 
-            <template id="cruiseCardTemp">
-                <!-- cruise card column --------------------->
-                <div class="col-4">
-                    <!-- cruise card -->
-                    <div class="card cruise-card">
-                        <div class="card-bg">
-                            <img src="assets/boat1.jpg" class="card-img-top cruise-img" id="cruiseImg" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">Aurora</h5>
-                                <p class="card-text">Experience the ultimate in luxury and relaxation on our Luxury Oasis cruise. Sail through crystal-clear waters, enjoy gourmet dining, and indulge in world-class spa treatments.</p>
-                                <div class="price">R32 000</div>
-                                <button class="btn btn-primary add-to-trip">Add to Trip</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <!-- end cruise card -->
-                </div>
-                <!-- end cruise card column ---------------->
-            </template>
-            
-
         </div>
     </div>
 
     
       
 
-    
+    <!-- footer  -->
+    <div class="footer">
+      <img src="assets/logo.png" alt="" height="70">
+      <p>©2023</p>
+    </div>
+    <!-- end footer -->
+
+    <!-- Template -->
+    <template id="cruiseCardTemp">
+      <!-- cruise card column --------------------->
+      <div class="col-4">
+          <!-- cruise card -->
+          <div class="card cruise-card">
+              <div class="card-bg">
+                  <img src="assets/boat1.jpg" class="card-img-top cruise-img" id="cruiseImg" alt="...">
+                      <div class="card-body">
+                      <h5 class="card-title">Aurora</h5>
+                      
+                      <div class="weather-icon">
+                        <img src="assets/boat1.jpg" alt="" id="weather-icon-img">
+                        <p id="weather-text">23</p>
+                      </div>
+
+                      <p class="card-text">Experience the ultimate in luxury and relaxation on our Luxury Oasis cruise. Sail through crystal-clear waters, enjoy gourmet dining, and indulge in world-class spa treatments.</p>
+                      <div class="price">R32 000</div>
+                      <button class="btn btn-primary add-to-trip">Add to Trip</button>
+                  </div>
+              </div>
+              
+          </div>
+          <!-- end cruise card -->
+      </div>
+      <!-- end cruise card column ---------------->
+    </template>
+
+
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
