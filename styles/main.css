@@ -92,7 +92,7 @@ body {
 /* card components */
 .card {
     width: 361px;
-    height: auto;
+    height: 680px;
     box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.10);
     border: none;
     border-radius: 41px;
@@ -105,7 +105,7 @@ body {
   
 .card-bg {
     width: 361px;
-    height: auto;
+    height: 680px;
     left: 0px;
     top: 0px;
     background: white;
@@ -125,7 +125,7 @@ body {
   
 
 .card-body {
-    
+    height: 680px;
     bottom: 20px;
     left: 20px;
     color: #07689F;

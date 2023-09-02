@@ -179,7 +179,7 @@ function loadCruises(showCruises) {
       );
 
       // Add Location text to card
-      $(currentChild).find(".card-text").prepend('<span class="location">Location: ' + cruise.location + '</span>');
+      $(currentChild).find(".card-text").prepend('<span class="location">Port: ' + cruise.location + '</span>');
       $(currentChild).find(".location").hide(); 
       $(currentChild).find(".weather-icon").hide();
 
