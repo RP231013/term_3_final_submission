@@ -147,11 +147,21 @@ $(document).ready(function(){
 
   console.log("hello")
 
+  // h1-tag that changes when doc is ready (disappears after delay)
   loadingText();
+  // logo change upon hover added
   logoHover();
+
+  
+  
+  //loads cruises
   loadCruises(arrCruises);
 
+  //Loads featured trips on home page
+  loadFeaturedTrips(arrCruises);
 
+  
+  
 
 });
 
@@ -184,7 +194,10 @@ function loadingText() {
 
 }
 
-// load cruises method
+
+
+// -------------------------------------------------------------------------------------------------------------------------
+// Main load cruises method for trips page
 function loadCruises(showCruises) {
 
   $("#cruiseContainer").empty();
@@ -226,6 +239,9 @@ function loadCruises(showCruises) {
       $(currentChild).find(".card-title").text(cruise.name);
       $(currentChild).find(".card-text").text(cruise.description);
       $(currentChild).find(".price").text('R ' + cruise.price);
+
+      // add button index value
+      $(currentChild).find(".add-to-trip").attr("data-cruise-index", i);
 
       // Hide info text until hover
       $(currentChild).find(".card-text-info").hide();
@@ -279,14 +295,19 @@ function loadCruises(showCruises) {
       // hide weather icon
       $(currentChild).find(".weather-icon").hide();
       $(currentChild).find(".add-to-trip").toggle();
-
-      
-  }
-  
+ 
+  } 
 }
+// -------------------------------------------------------------------------------------------------------------------------
+// END Main load cruises method for trips page
 
-// -----------------
+
+
+
+// -------------------------------------------------------------------------------------------------------------------------
 // When filter/sort is clicked
+
+//radio clicked
 $("input[name='filterRadio']").click(function() {
   currentFilter = $(this).attr('value');
   console.log(currentFilter);
@@ -295,17 +316,20 @@ $("input[name='filterRadio']").click(function() {
   filterSortCruises();
 });
 
+//sort clicked
 $("input[name='sortRadio']").click(function() {
   currentSort = $(this).attr('value');
   console.log(currentSort);
 
   filterSortCruises();
 });
+// END When filter/sort is clicked
+
 
 // Function for filtering and sorting
 function filterSortCruises() {
 
-  // Filter
+  // Filter array
   let filteredSortedArrCruise = [];
 
   // Filtering
@@ -338,10 +362,163 @@ function filterSortCruises() {
   }else{
     filteredSortedArrCruise = filteredSortedArrCruise;
   }
-  
 
-  console.log("Filtered Array-----------------")
-  console.log(filteredSortedArrCruise);
   loadCruises(filteredSortedArrCruise);
 
 }
+// -------------------------------------------------------------------------------------------------------------------------
+// END When filter/sort is clicked
+
+
+
+
+// -------------------------------------------------------------------------------------------------------------------------
+// Function to load featured trips on the home page
+function loadFeaturedTrips(arrCruises) {
+  
+  // ensures that completely random trips are selected
+  let randomTrips = [];
+  for(let k = 0; k < 3; k++){
+    randomTrips[k] = Math.round(Math.random()*12 + 0);
+
+    while(k > 0 && randomTrips[k] === randomTrips[k-1]){
+      randomTrips[k] = Math.round(Math.random()*12 + 0);
+    }
+  }
+
+  let featuredCruises = [arrCruises[randomTrips[0]], arrCruises[randomTrips[1]], arrCruises[randomTrips[2]]];
+
+
+  // Clear the container for the featured trips
+  $("#featuredTripsContainer").empty();
+
+  // Iterate through the selected featured cruises
+  for(let i = 0; i < featuredCruises.length; i++)
+  {
+    cruise = featuredCruises[i];
+    $("#featuredTripsContainer").append($("#cruiseCardTemp").html());
+
+    let currentChild = $("#featuredTripsContainer").children().eq(i);
+
+    // Customize the content of the cloned card to match the featured cruise
+    $(currentChild).find("#cruiseImg").attr('src', cruise.image);
+    $(currentChild).find(".card-title").text(cruise.name);
+    $(currentChild).find(".card-text").text(cruise.description);
+    $(currentChild).find(".price").text('R ' + cruise.price);
+
+    // add button index value
+    $(currentChild).find(".add-to-trip").attr("data-cruise-index", i);
+
+    
+
+
+
+    // Hide info text until hover
+    $(currentChild).find(".card-text-info").hide();
+    $(currentChild).find("#weather-icon-img").hide();
+    $(currentChild).find("#weather-text").hide();
+
+    
+
+    // Add hover effect to cruise card
+    $(currentChild).hover(
+        function () { 
+            // Toggle image size
+            $(this).find(".card-img-top").toggleClass("small-image");
+            // Toggle Location text
+            //$(this).find(".location").toggle();
+            // Toggle card title style
+            $(this).find(".card-title").toggleClass("small-title");
+            
+            
+            // Switch description with info-text
+            // changes false into no, and true into yes
+            let ret = "";
+            if(cruise.return){
+              ret = "Round trip";
+            }else{
+              ret = "One way";
+            }
+
+            // populates string with all trip data
+            let des = "";
+            for(let j = 0; j < featuredCruises[i].destinations.length; j++){
+              if(j === (featuredCruises[i].destinations.length - 1)){
+                des += featuredCruises[i].destinations[j] + ' ';
+              }else{
+                des += featuredCruises[i].destinations[j] + '; ';
+              }
+              
+            }
+
+            $(currentChild).find(".card-text-info").html(
+              '<p> <strong>Port: ' + featuredCruises[i].location + '</strong></p>' + 
+              '<p><strong>(' + ret + ')</strong></p>' + 
+              '<p><strong>Duration: </strong>' + featuredCruises[i].length + ' days </p>' +
+              '<p><strong>Destinations (' + featuredCruises[i].destinations.length + ')</strong>: ' + des + '</p>');
+            $(currentChild).find(".card-text-info").toggle();
+            $(currentChild).find(".card-text").toggle();
+
+            // toggle button active
+            $(currentChild).find(".add-to-trip").toggle();
+            $(currentChild).find("#weather-text").text("" + featuredCruises[i].temp + "ºC");
+            $(currentChild).find("#weather-text").toggle();
+
+        }
+    );
+
+    
+    $(currentChild).find(".add-to-trip").toggle();
+
+  };
+
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// END Function to load featured trips on the home page
+
+
+
+
+// Function to update the cart count in the navigation
+//sets cart value in local storage, if there is no item stored yet, declare as 0
+let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
+
+//updates cart's nav-link to active if user has added a trip
+function updateCartCount() {
+  if (cartCount !== 0) {
+    $("#cartPage").removeClass("disabled");
+    $("#cartPage").text("Cart (" + cartCount + ")");
+  }
+}
+
+
+//Add selected cruise object to local storage
+$("#containerOfTripCards").on("click", ".add-to-trip", function () {
+  // Retrieve the index of the cruise object from the data attribute
+  const cruiseIndex = $(this).data("cruise-index");
+
+  // get the corresponding cruise object
+  const selectedCruise = arrCruises[cruiseIndex];
+
+  // enable cart nav-link
+  cartCount++;
+  localStorage.setItem("cartCount", cartCount);
+  updateCartCount();
+
+  // cart array to be loaded here with selected cruise
+
+
+  //user feedback
+  alert(`Added "${selectedCruise.name}" to your cart.`);
+
+  
+});
+
+//checks if cart should be updated when moving from page
+$(".navbar").on("click", "#tripsPage",function() {
+  updateCartCount();
+});
+
+//updates cart count on new page
+updateCartCount();
+
