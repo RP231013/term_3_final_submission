@@ -15,6 +15,15 @@ body {
     height: 100vh;
 }
 
+/* loader text - changes when document has finished loading */
+#loaderText{
+    font-family: 'Bad Script', cursive;
+    color: #07689F;
+    margin-top: 7%;
+    margin-bottom: 2%;
+    margin-left: 38%;
+}
+
 /* navbar */
 .navbar{
     box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.15);
@@ -30,6 +39,12 @@ body {
 .nav-link.active{
     font-weight: 600;
 }
+
+.nav-link:hover{
+    font-weight: 600;
+    color: #68A0D6;
+}
+
 
 /* carousel  */
 .carousel-indicators{
@@ -89,10 +104,11 @@ body {
     color: white;
 }
 
+/* ------------------------------ */
 /* card components */
 .card {
     width: 361px;
-    height: 680px;
+    height: 620px;
     box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.10);
     border: none;
     border-radius: 41px;
@@ -100,17 +116,19 @@ body {
     margin: 20px;
     background: none;
 }
-
-
   
 .card-bg {
     width: 361px;
-    height: 680px;
+    height: 620px;
     left: 0px;
     top: 0px;
     background: white;
     box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.25);
     border-radius: 41px;
+}
+
+.card:hover{
+    box-shadow: 10px 10px 25px rgba(1, 50, 114, 0.456);
 }
   
 .cruise-img {
@@ -118,6 +136,7 @@ body {
     height: 212px;
     margin-left: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
     box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.25);
     border-radius: 34px;
     transition: 0.3s ease;
@@ -135,7 +154,7 @@ body {
     font-size: 40px;
     font-family: 'Bad Script', cursive;
     font-weight: 400;
-    word-wrap: break-word;
+    margin-bottom: 15px;
     padding-bottom: -20px;
     transition: font-size 0.3s ease;
 }
@@ -147,9 +166,18 @@ body {
     line-height: 33px;
     word-wrap: break-word;
 }
+
+.card-text-info {
+    font-size: 22px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 33px;
+    word-wrap: break-word;
+}
   
 .price {
-    font-size: 23px;
+    margin-top: 15px;
+    font-size: 26px;
     font-family: 'Helvetica', sans-serif;
     font-weight: 700;
     line-height: 34.50px;
@@ -167,8 +195,8 @@ body {
     font-size: 18px;
     font-family: 'Helvetica', sans-serif;
     font-weight: 700;
-    margin-top: 10px;
-    margin-left: 40%;
+    margin-top: 20px;
+    margin-left: 23%;
 }
 
 .weather-icon img{
@@ -207,6 +235,14 @@ body {
     margin-bottom: 10px;
 }
   
+/* --------------------------------- */
+/* Trips heading text */
+.trip-intro{
+    color: #07689F;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 
 /* Trips header section */
 .header {
@@ -250,6 +286,15 @@ body {
     word-wrap: break-word;
 }
 
+/* Cool background for trips
+#cruiseContainer{
+    background-image: radial-gradient(#07689f 2px, transparent 2px), radial-gradient(#07689f 2px, transparent 2px);
+    background-size: 36px 36px;
+    background-position: 0 0, 18px 18px;
+    background-color: #ffffff;
+} */
+
+
 
 /* footer */
 .footer{
@@ -265,8 +310,8 @@ body {
     margin-top: -10px;
 }
 
-/* About us */
-.about-us{
+/* About us & featured */
+.about-us, .featured{
     height: 650px;
     color: #07689F;
     background-image: url("../assets/about-us-bg.jpg");
@@ -274,12 +319,23 @@ body {
     background-size: cover;
 }
 
+.featured{
+    height: 100px !important;
+    background-image: none !important;
+}
+
 .about-us h2{
     padding-top: 15%;
     font-weight: bold;
     font-size: 55px;
     text-align: center;
-    
+}
+
+.featured h2 {
+    padding-top: 2%;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
 }
 
 .about-us p{
@@ -310,4 +366,56 @@ body {
 
 .btn-outline-primary:hover{
     color: white;
+}
+
+/* accordion */
+.accordion{
+    margin-bottom: 2%;
+}
+
+.accordion-item, .accordion button{
+    background-color: white;
+    color: #07689F;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    
+}
+
+.accordion-header, .accordion-body{
+    height: 100px;
+}
+
+
+
+.accordion-body{
+    padding-top: 2%;
+    padding-bottom: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.accordion-button{
+    height: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: 'Bad Script', cursive !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: white;
+    color: #07689f;
+    font-weight: bold;
+}
+
+#collapseFour button{
+    color: white;
+    background-color: #07689F;
+}
+
+#collapseFour button:hover{
+    color: #07689F;
+    background-color: white;
+    border: 2px solid #07689F;
 }

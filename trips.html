@@ -16,8 +16,8 @@
       <div class="container">
 
         <!-- logo -->
-        <a class="navbar-brand" href="#">
-          <img src="assets/logo.png" alt="Logo" height="70">
+        <a class="navbar-brand" href="index.html">
+          <img class="logo-image" src="assets/logo.png" alt="Logo" height="70">
         </a>
 
         <!-- nav items -->
@@ -29,13 +29,15 @@
             <a class="nav-link active" href="browse.html">Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="wishlist.html">Basket</a>
+            <a class="nav-link disabled" href="wishlist.html">Cart</a>
           </li>
         </ul>
       </div>
     </nav>
     <!-- end nav ------------------------>
 
+
+    <!-- Section for cool blue accents -->
     <div class="header">
 
         <div class="header-background">
@@ -72,11 +74,25 @@
         <div class="header-divider"></div>
         <div class="header-title">Our Cruises</div>
     </div>
-    
-    <div class="container">
-        <div class="row" id="cruiseContainer">
 
+    
+    
+
+    <!-- trips and intro -->
+    <div class="container">
+      <!-- Intro to page  -->
+      <div class="row">
+        <div class="col trip-intro">
+          <h2>Welcome to our exquisite world of yacht cruises. At Opal Seas, we invite you to embark on a journey where the sea becomes your canvas, and luxury knows no bounds. Our carefully curated cruises are designed to be more than just voyages; they are unforgettable chapters in your life's story, each filled with elegance, adventure, and opulence.</h2>
         </div>
+      </div>
+
+
+      <!-- Container for cruises to be loaded into -->
+      <div class="row" id="cruiseContainer">
+
+      </div>
+      
     </div>
 
     
@@ -106,6 +122,10 @@
                       </div>
 
                       <p class="card-text">Experience the ultimate in luxury and relaxation on our Luxury Oasis cruise. Sail through crystal-clear waters, enjoy gourmet dining, and indulge in world-class spa treatments.</p>
+                      
+                      <!-- used to add required info upon hover -->
+                      <div class="card-text-info"></div>
+
                       <div class="price">R32 000</div>
                       <button class="btn btn-primary add-to-trip">Add to Trip</button>
                   </div>

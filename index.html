@@ -16,8 +16,8 @@
       <div class="container">
 
         <!-- logo -->
-        <a class="navbar-brand" href="#">
-          <img src="assets/logo.png" alt="Logo" height="70">
+        <a class="navbar-brand" href="index.html">
+          <img class="logo-image" src="assets/logo.png" alt="Logo" height="70">
         </a>
 
         <!-- nav items -->
@@ -29,13 +29,14 @@
             <a class="nav-link" href="trips.html">Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="wishlist.html">Basket</a>
+            <a class="nav-link disabled" href="wishlist.html">Cart</a>
           </li>
         </ul>
       </div>
     </nav>
     <!-- end nav ------------------------>
 
+    <h1 id="loaderText">Loading Opulence...</h1>
 
     <!-- carousel ----------------------------------------------------------------------------->
     <div id="carouselExampleIndicators" class="carousel slide" >
@@ -57,7 +58,8 @@
                         <h1>A Luxurious Escape</h1>
                         <p>Embark on an unforgettable journey with Opal Seas, where opulence and elegance meet the tranquil allure of the seas. Get ready to indulge in a world of refined luxury, tailored to surpass your every desire, as you set sail on our handpicked fleet of exquisite yachts.</p>
                     </div>
-                    <button class="button mt-2">Begin Voyage</button>
+                    <a href="trips.html"><button class="button mt-2">Begin Voyage</button></a>
+                    
                 </div>
                 
             </div>          
@@ -73,7 +75,8 @@
                         <h1>Luxury Accommodations</h1>
                         <p>Experience unmatched comfort and sophistication as you bask in the lavish interiors of our meticulously designed cabins and suites. Every detail has been thoughtfully curated to create an oasis of tranquility, ensuring a restful retreat throughout your voyage.</p>
                     </div>
-                    <button class="button mt-2">Explore Trips</button>
+                    <a href="trips.html"><button class="button mt-2">Explore Trips</button></a>
+                    
                 </div>
                 
             </div>
@@ -89,7 +92,8 @@
                         <h1>Exclusive Activities</h1>
                         <p>Immerse yourself in a world of luxury and adventure with our curated selection of exclusive activities. From snorkeling in crystal-clear waters to private island excursions, each experience is designed to elevate your journey and create cherished memories that last a lifetime.</p>
                     </div>
-                    <button class="button mt-2">Explore Activities</button>
+                    <a href="trips.html"><button class="button mt-2">Explore Activities</button></a>
+                    
                 </div>
                 
             </div>
@@ -123,15 +127,87 @@
             <h2>About us</h2>
             <p>At Opal Seas, we craft experiences that transcend the ordinary and usher you into a world of unparalleled luxury yacht cruises. For us, the sea is more than water; it's a canvas for unforgettable memories, a theater for extraordinary moments, and a gateway to unparalleled elegance.</p>
           </div>
+          
         </div>
       </div>
 
-      
-      
-      
-
-
     </div>
+
+    <!-- accordion -------------------------------------------------------->
+    <div class="col align-self-center">
+      <div class="accordion" id="plantAccordion">
+        
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Our Story
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent=".plantAccordion">
+            <div class="accordion-body">
+              <p>Born from a passion for the ocean's beauty and the desire to offer discerning travelers the epitome of maritime opulence, Opal Seas has set sail on a mission to redefine yacht cruising. Our journey began with a vision to blend the timeless allure of the sea with the contemporary comforts of luxury travel. Over the years, we've curated a fleet of meticulously selected yachts, each a masterpiece of design and craftsmanship. These vessels, adorned with opulent interiors and world-class amenities, serve as your gateway to the world's most captivating destinations.</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Our Commitment to Excellence
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>At Opal Seas, excellence is our standard. From the moment you step aboard one of our yachts, you'll experience a level of service and attention to detail that is second to none. Our crew members are not just experts; they're passionate hosts, dedicated to ensuring your every desire is met.</p>                          
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              A Bespoke Experience
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>We understand that every journey is as unique as the traveler. That's why we offer bespoke yacht experiences, tailored to your preferences and desires. Whether you're celebrating a special occasion, seeking a romantic escape, or planning a family adventure, Opal Seas crafts each voyage with your dreams in mind.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+              How can I book a yacht cruise with Opal Seas?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Booking your dream yacht cruise with Opal Seas is simple. Visit our "Trips" page (or click the button below), select your desired cruise, and follow the easy booking process. Alternatively, you can reach out to our dedicated team for personalized assistance.</p>
+              <a href="trips.html"><button class="button mt-2">Begin Voyage</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end accordion ---------------------------------------------------->
+
+    <!-- featured -->
+    <div class="featured">
+      
+      <div class="container">
+        <div class="row">
+          <h2>Featured Trips</h2>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    <!-- end featured -->
+
+
+    
 
 
     <!-- footer  -->
