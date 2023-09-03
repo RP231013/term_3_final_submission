@@ -3,6 +3,7 @@
 /* global */
 h2, h3, h4 {
     font-family: 'Bad Script', cursive;
+    
 }
 h1, h5, h6, p{
     font-family: 'Inter', sans-serif;
@@ -102,6 +103,29 @@ body {
 .button:hover{
     background-color: #07689F;
     color: white;
+}
+
+.darkBtn{
+    background-color: #07689F;
+    color: white;
+}
+
+.darkBtn:hover{
+    background-color: white;
+    color: #07689F;
+    border: 2px solid #07689F;
+}
+
+.removeCartBtn{
+    margin-left:78%;
+}
+
+.checkoutBtn {
+    margin-left: 55%;
+}
+.checkoutBtn:hover{
+    border: 1px solid white !important;
+    
 }
 
 /* ------------------------------ */
@@ -252,6 +276,13 @@ body {
     margin-top: 5%;
 }
 
+.header2 {
+    width: 100%;
+    height: 104px;
+    position: relative;
+    margin-top: -28%;
+}
+
 .header-background {
     width: 100%;
     height: 63px;
@@ -286,13 +317,6 @@ body {
     word-wrap: break-word;
 }
 
-/* Cool background for trips
-#cruiseContainer{
-    background-image: radial-gradient(#07689f 2px, transparent 2px), radial-gradient(#07689f 2px, transparent 2px);
-    background-size: 36px 36px;
-    background-position: 0 0, 18px 18px;
-    background-color: #ffffff;
-} */
 
 
 
@@ -353,7 +377,6 @@ body {
 
 /* Filter & Sort Buttons */
 .btn-outline-primary{
-    width: 150px;
     height: auto;
     color: #07689F;
     background-color: white;
@@ -362,12 +385,12 @@ body {
     margin-left: 20px;
     margin-top: 14px;
     font-size: 14px;
-
+    padding-left: 20px;
+    padding-right: 20px;
+    --bs-btn-color: white;
 }
 
-.btn-outline-primary:hover{
-    color: white;
-}
+
 
 /* accordion */
 .accordion{
@@ -419,4 +442,27 @@ body {
     color: #07689F;
     background-color: white;
     border: 2px solid #07689F;
+}
+
+/* table */
+
+
+.table {
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+.table h4{
+    color: #07689F !important;
+}
+
+#tableRows p{
+    margin-top: 12px;
+    color: #07689F;
+    font-size: 20px;
+}
+
+#tableRows h2{
+    color: #07689F;
 }

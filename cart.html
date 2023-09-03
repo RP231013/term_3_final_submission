@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Opal Seas</title>
+    <!-- Style sheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+    <!-- nav ------------------------>
+    <nav class="navbar fixed-top pt-0" style="background-color: #ffffff; height: 80px;">
+      <div class="container">
+
+        <!-- logo -->
+        <a class="navbar-brand" href="index.html">
+          <img class="logo-image" src="assets/logo.png" alt="Logo" height="70">
+        </a>
+
+        <!-- nav items -->
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="trips.html" id="tripsPage">Trips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="cartPage" href="cart.html">Cart</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end nav ------------------------>
+
+
+    <!-- Section for cool blue accents -->
+    <div class="header">
+
+        <div class="header-background"></div>
+
+        <div class="header-divider"></div>
+        <div class="header-title"> Your Cart 🛒</div>
+    </div>
+
+    
+    
+
+    <!-- main container -->
+    <div class="container">
+      <!-- Intro to page  -->
+      <div class="row">
+        <div class="col trip-intro">
+          <h2>Welcome to Your Cart of Distinct Choices.</h2>
+        </div>
+      </div>
+
+        <div class="row full-height">
+            <div class="col align-self-top mt-1 pt-1">
+
+                <!-- table  --------------------------->
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"><h4>No.</h4></th>
+                        <th scope="col"><h4>Trip Name</h4></th>
+                        <th scope="col"><h4>Cost</h4></th>
+                        <th scope="col"><h4>Quantity</h4></th>
+                        <th scope="col"><h4>Remove from Cart</h4></th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableRows">
+                      <!-- <tr>
+                        <td><p class="num">1</p></td>
+                        <td><p class="crName">Opulence</p></td>
+                        <td><p class="crPrice">R23000</p></td>
+                        <td><p class="qty">1</p></td>
+                        <td class="removeX"><h2>⊗</h2></td>
+                      </tr> -->
+                      
+                      
+                    </tbody>
+                  </table>
+                <!-- end table  --------------------------->
+                <button class="button mt-2 removeCartBtn darkBtn" id="clearCart">Remove all</button>
+            </div>
+        
+        </div>
+
+    </div>
+
+    <!-- Section for cool blue accents -->
+    <div class="header2">
+
+        <div class="header-background"><button class="button mt-2 checkoutBtn">Checkout</button></div>
+
+        <div class="header-divider"></div>
+        <div class="header-title"> R -</div>
+    </div>
+
+    <!-- cart template -->
+    <template id="cartContainerTemplate">
+        <tr>
+            <td><p class="num">1</p></td>
+            <td><p class="crName">Opulence</p></td>
+            <td><p class="crPrice">R23000</p></td>
+            <td><p class="qty">1</p></td>
+            <td><h2 class="removeX">⊗</h2></td>
+          </tr>
+    </template>
+
+    
+      
+
+    
+
+    
+
+    <!-- footer  -->
+    <div class="footer">
+      <img src="assets/logo.png" alt="" height="70">
+      <p>©2023</p>
+    </div>
+    <!-- end footer -->
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+
+  </body>
+</html>

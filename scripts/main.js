@@ -133,7 +133,7 @@ const arrCruises = [
     destinations: ["Bangkok", "Chiang Mai"]
   }
 ];
-
+// END cruise array -----------------------------------------------------------------------------------------
 
 // Variables for Sorting & Filtering
 let currentFilter = "";
@@ -142,7 +142,7 @@ let currentSort = "low to high";
 
 
 
-// When doc is ready
+// When doc is ready -----------------------------------------------------------------------------------------
 $(document).ready(function(){
 
   console.log("hello")
@@ -151,22 +151,23 @@ $(document).ready(function(){
   loadingText();
   // logo change upon hover added
   logoHover();
-
-  
   
   //loads cruises
   loadCruises(arrCruises);
 
   //Loads featured trips on home page
   loadFeaturedTrips(arrCruises);
-
+ 
+  loadCart();
+  //localStorage.clear();
   
   
 
 });
+// END When doc is ready -----------------------------------------------------------------------------------------
 
 
-// function for logo hover
+// function for logo hover -----------------------------------------------------------------------------------------
 function logoHover() {
   // Logo Image hover
   $(".logo-image").hover(
@@ -181,8 +182,11 @@ function logoHover() {
       $(this).animate({right: '0'});
     });
 }
+// END function for logo hover -----------------------------------------------------------------------------------------
 
-// function for making required <h1> tag, "loaderText", change when doc has loaded, 
+
+
+// function for making required <h1> tag, "loaderText", change when doc has loaded, -------------------------------
 // also disappears after having been changed from "Loading Opulence..." (index.html:39) to "Welcome to OpalSeas."
 function loadingText() {
   $("#loaderText").text("Welcome to OpalSeas.");
@@ -193,6 +197,7 @@ function loadingText() {
   }, delay);
 
 }
+// END loadingText
 
 
 
@@ -212,9 +217,9 @@ function loadCruises(showCruises) {
 
       
 
-    // Weather API
+    // OpenWeather API
     $.ajax({
-      type: "GET",
+      type: "GET", //gets temp data for location
       url:"https://api.openweathermap.org/data/2.5/weather?q=" + cruise.location + "&appid=0c8a911e5c7f8e5a03991afe2075de21",
       success: function(data){
           weatherData = data;
@@ -223,11 +228,13 @@ function loadCruises(showCruises) {
       }
         
     }).done(function(){
+        //gets and sets weather icon
         $(currentChild).find("#weather-icon-img").attr('src', 'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png');
         $(currentChild).find("#weather-text").text(Math.round(weatherData.main.temp - 273) + "ºC");
         
         let temp = Math.round(weatherData.main.temp - 273);
       
+        //sets cruise temp data for later use
         showCruises[i].temp = temp;
         console.log(showCruises[i].temp);
 
@@ -246,20 +253,20 @@ function loadCruises(showCruises) {
       // Hide info text until hover
       $(currentChild).find(".card-text-info").hide();
 
-      // Add hover effect to cruise card
+      // hover effect - cruise card
       $(currentChild).hover(
           function () { 
               // Toggle image size
               $(this).find(".card-img-top").toggleClass("small-image");
-              // Toggle Location text
-              //$(this).find(".location").toggle();
+              
               // Toggle card title style
               $(this).find(".card-title").toggleClass("small-title");
+
               // Toggle Weather Icon
               $(currentChild).find(".weather-icon").toggle();
               
               // Switch description with info-text
-              // changes false into no, and true into yes
+              // changes false into 'no', and true into 'yes'
               let ret = "";
               if(cruise.return){
                 ret = "Round trip";
@@ -270,6 +277,7 @@ function loadCruises(showCruises) {
               // populates string with all trip data
               let des = "";
               for(let i = 0; i < cruise.destinations.length; i++){
+                //if last, don't add ';' after destination
                 if(i === (cruise.destinations.length - 1)){
                   des += cruise.destinations[i] + ' ';
                 }else{
@@ -278,6 +286,7 @@ function loadCruises(showCruises) {
                 
               }
 
+              //adds further data
               $(currentChild).find(".card-text-info").html(
                 '<p> <strong>Port: ' + cruise.location + '</strong></p>' + 
                 '<p><strong>(' + ret + ')</strong></p>' + 
@@ -305,8 +314,8 @@ function loadCruises(showCruises) {
 
 
 // -------------------------------------------------------------------------------------------------------------------------
-// When filter/sort is clicked
 
+// When filter/sort is clicked
 //radio clicked
 $("input[name='filterRadio']").click(function() {
   currentFilter = $(this).attr('value');
@@ -332,21 +341,55 @@ function filterSortCruises() {
   // Filter array
   let filteredSortedArrCruise = [];
 
-  // Filtering
-  if(currentFilter === "cold"){
+  // Filtering-------------------------------
+  if(currentFilter === "cold"){ 
+    //cold weather filter
     filteredSortedArrCruise = arrCruises.filter(cruise => +(cruise.temp) < 20);
+
   }else if(currentFilter === "warm"){
+    //warm weather filter
     filteredSortedArrCruise = arrCruises.filter(cruise => +(cruise.temp) >= 20);
-  }else{
+
+  }else if(currentFilter === "returnF"){
+    //round-trip filter
+    filteredSortedArrCruise = arrCruises.filter(cruise => (cruise.return));
+
+  }else if(currentFilter === "one-way"){
+    //one-way filter
+    filteredSortedArrCruise = arrCruises.filter(cruise => (!cruise.return));
+
+  }else if(currentFilter === "short"){
+    //short cruise filter
+    filteredSortedArrCruise = arrCruises.filter(cruise => +(cruise.length) < 8);
+
+  }else if(currentFilter === "long"){
+    //long cruise filter
+    filteredSortedArrCruise = arrCruises.filter(cruise => +(cruise.length) >= 8);
+
+  }else if(currentFilter === "multi"){
+    //more than 3 destinations
+    filteredSortedArrCruise = arrCruises.filter(cruise => +(cruise.destinations.length) >= 3);
+  }
+  else{
+    //no filter
     filteredSortedArrCruise = arrCruises;
   }
 
-  // Sort
+
+  // Sorting----------------------------------
   if(currentSort === "low to high"){
+    //price low to high sort
     filteredSortedArrCruise = filteredSortedArrCruise.sort((a, b) => {
       return a.price - b.price;
     });
-  }else if(currentSort === "a to z"){
+  }else if(currentSort === "high to low"){
+    //price high to low sort
+    filteredSortedArrCruise = filteredSortedArrCruise.sort((b, a) => {
+      return a.price - b.price;
+    });
+  }
+  else if(currentSort === "a to z"){
+    //alphabet sort
     filteredSortedArrCruise = filteredSortedArrCruise.sort((a, b) => {
       const nameA = a.name.toLowerCase(); 
       const nameB = b.name.toLowerCase();
@@ -359,7 +402,13 @@ function filterSortCruises() {
       }
       return 0;
     });
+  }else if(currentSort === "duration"){
+    //duration (days) cruise sort
+    filteredSortedArrCruise = filteredSortedArrCruise.sort((b, a) => {
+      return b.length - a.length;
+    });
   }else{
+    //no sort
     filteredSortedArrCruise = filteredSortedArrCruise;
   }
 
@@ -386,6 +435,7 @@ function loadFeaturedTrips(arrCruises) {
     }
   }
 
+  //array with three random cruises
   let featuredCruises = [arrCruises[randomTrips[0]], arrCruises[randomTrips[1]], arrCruises[randomTrips[2]]];
 
 
@@ -407,11 +457,7 @@ function loadFeaturedTrips(arrCruises) {
     $(currentChild).find(".price").text('R ' + cruise.price);
 
     // add button index value
-    $(currentChild).find(".add-to-trip").attr("data-cruise-index", i);
-
-    
-
-
+    $(currentChild).find(".add-to-trip").attr("data-cruise-index", randomTrips[i]);
 
     // Hide info text until hover
     $(currentChild).find(".card-text-info").hide();
@@ -425,8 +471,7 @@ function loadFeaturedTrips(arrCruises) {
         function () { 
             // Toggle image size
             $(this).find(".card-img-top").toggleClass("small-image");
-            // Toggle Location text
-            //$(this).find(".location").toggle();
+
             // Toggle card title style
             $(this).find(".card-title").toggleClass("small-title");
             
@@ -434,7 +479,7 @@ function loadFeaturedTrips(arrCruises) {
             // Switch description with info-text
             // changes false into no, and true into yes
             let ret = "";
-            if(cruise.return){
+            if(featuredCruises[i].return){
               ret = "Round trip";
             }else{
               ret = "One way";
@@ -491,25 +536,32 @@ function updateCartCount() {
   }
 }
 
-
+//Global array for cart-objects
+let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
 //Add selected cruise object to local storage
 $("#containerOfTripCards").on("click", ".add-to-trip", function () {
   // Retrieve the index of the cruise object from the data attribute
-  const cruiseIndex = $(this).data("cruise-index");
+  let cruiseIndex = $(this).data("cruise-index");
 
   // get the corresponding cruise object
-  const selectedCruise = arrCruises[cruiseIndex];
+  let selectedCruise = arrCruises[cruiseIndex];
+
+  // add cruise to cart array and then to localStorage
+  cartArr.push(selectedCruise);
+  let cartData = JSON.stringify(cartArr);
+  localStorage.setItem("cart", cartData);
 
   // enable cart nav-link
   cartCount++;
   localStorage.setItem("cartCount", cartCount);
   updateCartCount();
 
-  // cart array to be loaded here with selected cruise
+  
 
 
   //user feedback
   alert(`Added "${selectedCruise.name}" to your cart.`);
+  
 
   
 });
@@ -517,8 +569,104 @@ $("#containerOfTripCards").on("click", ".add-to-trip", function () {
 //checks if cart should be updated when moving from page
 $(".navbar").on("click", "#tripsPage",function() {
   updateCartCount();
+  loadCart();
 });
 
-//updates cart count on new page
+//updates cart count on new pages
 updateCartCount();
+
+
+//loads cart table on cart page
+function loadCart() {
+  let data = JSON.parse(localStorage.getItem("cart"));
+  updateTotal(data);
+
+  $("#tableRows").empty();
+
+  for(let i = 0; i < data.length; i++){
+    
+
+    $("#tableRows").append($("#cartContainerTemplate").html());
+
+    let currentChild = $("#tableRows").children().eq(i);
+    
+    $(currentChild).find(".num").text(i+1);
+    $(currentChild).find(".crName").text(data[i].name);
+    $(currentChild).find(".crPrice").text("R" + data[i].price);
+
+
+  }
+}
+
+
+//remove item from localStorage and therefore from cart when 'x' is clicked
+$("#tableRows").on("click", ".removeX", function() {
+  // Get the index of the clicked row
+  const rowIndex = $(this).closest("tr").index();
+
+  // Retrieve the cart data from localStorage
+  let data = JSON.parse(localStorage.getItem("cart"));
+
+  // Check if the rowIndex is valid and within the data array's bounds
+  if (rowIndex >= 0 && rowIndex < data.length) {
+    // Remove the item at the specified index
+    data.splice(rowIndex, 1);
+
+    // Update the cart data in localStorage
+    localStorage.setItem("cart", JSON.stringify(data));
+
+    // Reload the cart to reflect the changes
+    loadCart();
+    
+    //update cart nav-link
+    cartCount--;
+    localStorage.setItem("cartCount", cartCount);
+    updateCartCount();
+
+    //updates total after removal 
+    updateTotal(data);
+    
+  }
+});
+
+// update total price of cart
+function updateTotal(currentArr) {
+  if (arguments.length === 0) {
+    // No arguments passed
+    $('.header2').find('.header-title').text("R ---");
+  } else {
+    // Handle the case where an array is passed
+    let total = 0;
+    for (let i = 0; i < currentArr.length; i++) {
+      total += currentArr[i].price;
+    }
+    $('.header2').find('.header-title').text("R " + total);
+  }
+}
+
+
+//clears whole cart when remove all is pressed
+$("#clearCart").on("click", function() {
+  
+  alert("triggered");
+
+  localStorage.clear();
+  $("#tableRows").empty();
+  updateCartCount();
+
+  $(".checkoutBtn").hide();
+  updateTotal();
+
+});
+
+//when checkout is pressed, clear the localStorage and return home
+$(".checkoutBtn").on("click", function() {
+  
+  localStorage.clear();
+  alert("Thank you for your purchase!");
+  window.location.href = "index.html";
+  
+
+
+});
 

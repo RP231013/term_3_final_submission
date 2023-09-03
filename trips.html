@@ -29,7 +29,7 @@
             <a class="nav-link active" href="browse.html" id="tripsPage">Trips</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" id="cartPage" href="">Cart</a>
+            <a class="nav-link disabled" id="cartPage" href="cart.html">Cart</a>
           </li>
         </ul>
       </div>
@@ -47,24 +47,53 @@
 
             <!-- Filter Radio Buttons -->
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <!-- all cruises -->
               <input type="radio" class="btn-check" name="filterRadio" id="allCruisesFilter" value="" autocomplete="off" checked>
-              <label class="btn btn-outline-primary" for="allCruisesFilter">All Cruises</label>
-            
+              <label class="btn btn-outline-primary" for="allCruisesFilter">All</label>
+              
+              <!-- cold weather -->
               <input type="radio" class="btn-check" name="filterRadio" id="coldFilter" value="cold" autocomplete="off">
-              <label class="btn btn-outline-primary" for="coldFilter">Cold Weather</label>
+              <label class="btn btn-outline-primary" for="coldFilter">Cold</label>
             
+              <!-- warm weather -->
               <input type="radio" class="btn-check" name="filterRadio" id="warmFilter" value="warm" autocomplete="off">
-              <label class="btn btn-outline-primary" for="warmFilter">Warm Weather</label>
+              <label class="btn btn-outline-primary" for="warmFilter">Warm</label>
+
+              <!-- round trips -->
+              <input type="radio" class="btn-check" name="filterRadio" id="returnFilter" value="returnF" autocomplete="off">
+              <label class="btn btn-outline-primary" for="returnFilter">Round Trip</label>
+
+              <!-- round trips -->
+              <input type="radio" class="btn-check" name="filterRadio" id="oneWayFilter" value="one-way" autocomplete="off">
+              <label class="btn btn-outline-primary" for="oneWayFilter">One-way</label>
+
+              <!-- short -->
+              <input type="radio" class="btn-check" name="filterRadio" id="shortFilter" value="short" autocomplete="off">
+              <label class="btn btn-outline-primary" for="shortFilter">Short</label>
+
+              <!-- long -->
+              <input type="radio" class="btn-check" name="filterRadio" id="longFilter" value="long" autocomplete="off">
+              <label class="btn btn-outline-primary" for="longFilter">Long</label>
+
+              <!-- Multi destination -->
+              <input type="radio" class="btn-check" name="filterRadio" id="multiDes" value="multi" autocomplete="off">
+              <label class="btn btn-outline-primary" for="multiDes">Tri-Destination+</label>
             </div>
 
             <!-- Sort Radio Buttons -->
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
               
               <input type="radio" class="btn-check" name="sortRadio" id="priceFilter" value="low to high" autocomplete="off">
-              <label class="btn btn-outline-primary" for="priceFilter">Price (Low to High)</label>
+              <label class="btn btn-outline-primary" for="priceFilter">Price ↓↑</label>
+
+              <input type="radio" class="btn-check" name="sortRadio" id="priceHighFilter" value="high to low" autocomplete="off">
+              <label class="btn btn-outline-primary" for="priceHighFilter">Price ↑↓</label>
             
               <input type="radio" class="btn-check" name="sortRadio" id="azSort" value="a to z" autocomplete="off">
-              <label class="btn btn-outline-primary" for="azSort">Alphabetically</label>
+              <label class="btn btn-outline-primary" for="azSort">A - Z</label>
+
+              <input type="radio" class="btn-check" name="sortRadio" id="duration" value="duration" autocomplete="off">
+              <label class="btn btn-outline-primary" for="duration">Dur.</label>
             </div>
             
           </div>
