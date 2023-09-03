@@ -2,13 +2,17 @@
 
 Welcome to OpalSeas - a yacht cruise booking project that utilises javascript and jQuery.
 
-[Watch the demo video here]()
+[Watch the demo video here](https://drive.google.com/drive/folders/10sixBkVr6OCB2j_4yaGrntdaP6c6Oefj?usp=sharing)
 
 ## Table of Contents
 
 * [About the Project](#about-the-project)
    * [Home Page](#home)
-   * [Trips Page](#browse-plants)
+      * [About us](#home)
+      * [Featured trips](#home)
+   * [Trips Page](#browse-trips)
+      * [With footer & hover](#cart-page)
+  * [Cart Page](#browse-trips)
 * [Getting Started](#getting-started)
   * [Installing](#installing)
 * [Built With](#built-with)
@@ -25,9 +29,25 @@ OpalSeas is a yacht cruise booking site which allows users to browse, filter, or
 
 ![Home Page](/screenshots/mockups/homeMockup.png)
 
-### Browse Trips
+### Home - About us
 
-![Trips Page](/screenshots/mockups/tripsMockup.png)
+![Home Page](/screenshots/mockups/home2.png)
+
+### Home - Featured trips
+
+![Home Page](/screenshots/mockups/home3.png)
+
+### Trips Page
+
+![Trips Page](/screenshots/mockups/trips.png)
+
+### Trips Page - with hover
+
+![Trips Page](/screenshots/mockups/trips2.png)
+
+### Cart Page
+
+![cart Page](/screenshots/mockups//cart.png)
 
 ## Getting Started
 
