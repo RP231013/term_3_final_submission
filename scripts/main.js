@@ -145,7 +145,6 @@ let currentSort = "low to high";
 // When doc is ready -----------------------------------------------------------------------------------------
 $(document).ready(function(){
 
-  console.log("hello")
 
   // h1-tag that changes when doc is ready (disappears after delay)
   loadingText();
@@ -224,7 +223,6 @@ function loadCruises(showCruises) {
       success: function(data){
           weatherData = data;
 
-          console.log(data);
       }
         
     }).done(function(){
@@ -236,7 +234,6 @@ function loadCruises(showCruises) {
       
         //sets cruise temp data for later use
         showCruises[i].temp = temp;
-        console.log(showCruises[i].temp);
 
         
     })
@@ -319,7 +316,6 @@ function loadCruises(showCruises) {
 //radio clicked
 $("input[name='filterRadio']").click(function() {
   currentFilter = $(this).attr('value');
-  console.log(currentFilter);
   
 
   filterSortCruises();
@@ -328,7 +324,6 @@ $("input[name='filterRadio']").click(function() {
 //sort clicked
 $("input[name='sortRadio']").click(function() {
   currentSort = $(this).attr('value');
-  console.log(currentSort);
 
   filterSortCruises();
 });
@@ -648,12 +643,10 @@ function updateTotal(currentArr) {
 //clears whole cart when remove all is pressed
 $("#clearCart").on("click", function() {
   
-  alert("triggered");
-
   localStorage.clear();
   $("#tableRows").empty();
-  updateCartCount();
-
+  
+  $("#cartPage").text("Cart");
   $(".checkoutBtn").hide();
   updateTotal();
 
@@ -665,8 +658,6 @@ $(".checkoutBtn").on("click", function() {
   localStorage.clear();
   alert("Thank you for your purchase!");
   window.location.href = "index.html";
-  
-
 
 });
 
